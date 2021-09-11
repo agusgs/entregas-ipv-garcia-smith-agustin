@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/Floor.tscn" type="PackedScene" id=3]
+
+[node name="Main" type="Node"]
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+anchor_left = -0.00390625
+anchor_top = -0.01
+anchor_right = 0.998
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 4.76837e-07
+margin_right = 0.0479736
+margin_bottom = 6.0
+expand = true
+
+[node name="Floor" parent="." instance=ExtResource( 3 )]
+anchor_top = 0.72
+anchor_right = 1.051
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -3.05176e-05
+margin_right = -56.224
+margin_bottom = 10.0
+expand = true
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 45, 377 )
+scale = Vector2( -1.25, 1.65625 )

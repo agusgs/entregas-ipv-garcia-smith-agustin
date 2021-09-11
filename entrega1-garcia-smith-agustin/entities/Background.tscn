@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://resources/background.png" type="Texture" id=1]
+
+[node name="Background" type="TextureRect"]
+anchor_left = -0.00195312
+anchor_top = -0.00333333
+anchor_right = 1.48005
+anchor_bottom = 0.963667
+margin_left = -2.0
+margin_right = 24.4319
+margin_bottom = 41.8
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
