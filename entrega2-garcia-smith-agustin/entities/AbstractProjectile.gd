@@ -7,8 +7,6 @@ export var speed:float
 
 var direction:Vector2
 
-onready var timer = $Timer
-
 func _ready():
 	set_physics_process(false)
 
@@ -18,9 +16,7 @@ func _physics_process(delta):
 func set_starting_values(starting_position:Vector2, direction:Vector2):
 	global_position = starting_position
 	self.direction = direction
-	timer.start()
 	set_physics_process(true)
 
-
-func _on_Timer_timeout():
+func _on_VisibilityNotifier2D_screen_exited():
 	emit_signal("delete_requested", self)

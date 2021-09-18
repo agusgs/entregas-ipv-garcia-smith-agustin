@@ -7,5 +7,6 @@
 texture = ExtResource( 2 )
 speed = 100.0
 
-[node name="Timer" parent="." index="0"]
-wait_time = 5.0
+[node name="VisibilityNotifier2D" parent="." index="0"]
+position = Vector2( 0.0894425, 0.178883 )
+scale = Vector2( 0.847948, 0.821116 )
