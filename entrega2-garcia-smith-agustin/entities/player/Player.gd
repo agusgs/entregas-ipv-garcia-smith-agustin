@@ -1,6 +1,10 @@
 extends Sprite
 
-var speed = 200 #Pixeles
+export var acceleration = 20
+export var friccion = 0.1
+export var max_speed = 400
+
+var velocity:Vector2 = Vector2.ZERO
 
 onready var cannon:Sprite = $Cannon
 
@@ -12,14 +16,24 @@ func set_projectile_container(container:Node):
 	projectile_container = container
 
 func _physics_process(delta):	
-	var direction:int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
-
+	# Mover el cañon adonde esta el puntero del mouse
 	var mouse_position:Vector2 = get_global_mouse_position()	
 	cannon.look_at(mouse_position)
 	
+	# Disparar el cañon
 	if Input.is_action_just_pressed("fire"):
 		cannon.fire()
-		
-	position.x += direction * speed * delta
+
+	# Mover el jugador
+	var direction:int = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+
+	if direction != 0:
+		velocity.x = clamp(velocity.x + (direction * acceleration), -max_speed, max_speed)
+	elif abs(velocity.x) > 1:
+		velocity.x = lerp(velocity.x, 0, friccion)
+	else:
+		 velocity.x = 0
+
+	position += velocity * delta
 
 	
