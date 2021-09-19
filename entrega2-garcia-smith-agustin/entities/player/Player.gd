@@ -36,4 +36,5 @@ func _physics_process(delta):
 
 	position += velocity * delta
 
-	
+func get_border_top_position():
+	return Vector2(position.x, position.y - texture.get_height()/2)
