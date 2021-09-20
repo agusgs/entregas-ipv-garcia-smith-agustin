@@ -6,16 +6,17 @@ export (int) var turrets_amount = 3
 onready var player:Sprite = $Player
 onready var turret_location:PathFollow2D = $TurretPath/TurretSpawnLocation
 
-onready var viewport_size = get_viewport().get_visible_rect().size
 export var player_turret_min_distance:int = 10
 
+var screen_size
+
 func _ready():
+	screen_size = get_viewport().get_visible_rect().size
+
 	player.set_projectile_container(self)
 	create_turrets()
-	
-func create_turrets():
-	var viewport_size = get_viewport().get_visible_rect().size
 
+func create_turrets():
 	randomize()
 	for n in self.turrets_amount:
 		var turret = turret_scene.instance()
@@ -26,7 +27,7 @@ func create_turrets():
 		var limit_altitude = player.get_border_top_position().y - turret_border_button_offset - player_turret_min_distance
 		
 		turret.position = Vector2(
-			randi() % int(viewport_size.x), 
+			randi() % int(screen_size.x), 
 			randi() % int(limit_altitude)
 		)
 

@@ -10,6 +10,11 @@ onready var cannon:Sprite = $Cannon
 
 var projectile_container:Node
 
+var screen_size
+
+func _ready():
+	screen_size = get_viewport().get_visible_rect().size
+
 # El player necesita que se llame a esta funcion antes de empezar a usarlo
 func set_projectile_container(container:Node):
 	cannon.projectile_container = container
@@ -35,6 +40,8 @@ func _physics_process(delta):
 		 velocity.x = 0
 
 	position += velocity * delta
+	position.x = clamp(position.x, 0, screen_size.x)
+	position.y = clamp(position.y, 0, screen_size.y)
 
 func get_border_top_position():
 	return Vector2(position.x, position.y - texture.get_height()/2)
