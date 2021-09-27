@@ -3,8 +3,7 @@ extends Node
 export (PackedScene) var turret_scene
 export (int) var turrets_amount = 3
 
-onready var player:Sprite = $Player
-onready var turret_location:PathFollow2D = $TurretPath/TurretSpawnLocation
+onready var player:Area2D = $Player
 
 export var player_turret_min_distance:int = 10
 
@@ -31,5 +30,5 @@ func create_turrets():
 			randi() % int(limit_altitude)
 		)
 
-		turret.initialize(player, self)
+		turret.initialize(self.player, self)
 		add_child(turret)

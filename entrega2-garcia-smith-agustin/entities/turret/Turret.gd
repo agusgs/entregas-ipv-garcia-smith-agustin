@@ -3,7 +3,7 @@ extends Sprite
 export var projectile_scene:PackedScene
 
 var projectile_container:Node
-var player:Sprite
+var player:Area2D
 
 onready var fire_position:Position2D = $FirePosition
 onready var timer:Timer = $Timer

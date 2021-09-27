@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/background.png" type="Texture" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://entities/enemies/Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/world/Plattform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/world/Floor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/world/Cube.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/world/Wall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/enemies/TurretsSpawner.gd" type="Script" id=9]
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="TurretsSpawner" type="Container" parent="."]
+anchor_left = 0.122018
+anchor_top = 0.05
+anchor_right = 2.87802
+anchor_bottom = 0.547
+margin_top = 34.0
+margin_right = 0.199951
+margin_bottom = -19.2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+turret_scene = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchor_left = -0.00141884
+anchor_top = -0.00111933
+anchor_right = 0.998581
+anchor_bottom = 0.998881
+margin_left = 1.37231
+margin_top = 4.11696
+margin_right = 1.37231
+margin_bottom = 4.117
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 323.872, 394.862 )
+JUMP_SPEED = -500.0
+GRAVITY = 20.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 75.8148, -93.7346 )
+current = true
+
+[node name="Floor" parent="." instance=ExtResource( 6 )]
+position = Vector2( 376.945, 531.892 )
+
+[node name="Floor2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1176.39, 532.049 )
+
+[node name="Floor3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1973.43, 531.895 )
+
+[node name="Cube" parent="." instance=ExtResource( 7 )]
+position = Vector2( 422.401, 396.782 )
+
+[node name="Cube5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 397.931, 334.95 )
+
+[node name="Cube6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 357.693, 278.15 )
+
+[node name="Cube7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 305.926, 217.755 )
+
+[node name="Cube8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 254.184, 277.431 )
+
+[node name="Cube9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 223.243, 339.264 )
+
+[node name="Cube10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 187.319, 398.195 )
+
+[node name="Cube2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1398.22, 326.205 )
+
+[node name="Cube3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1400.61, 389.985 )
+
+[node name="Cube4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1395.29, 259.341 )
+
+[node name="Wall" parent="." instance=ExtResource( 8 )]
+position = Vector2( 29.8349, 224.749 )
+
+[node name="Wall3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1680.64, 458.18 )
+rotation = 1.37532
+
+[node name="Wall2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2378.36, 224.191 )
+
+[node name="Plattform1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 632.396, 363.772 )
+
+[node name="Plattform2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 912.701, 308.904 )
+
+[node name="Plattform3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1203.74, 254.035 )

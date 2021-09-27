@@ -1,4 +1,4 @@
-extends Sprite
+extends Area2D
 
 export var acceleration = 20
 export var friccion = 0.1
@@ -7,6 +7,7 @@ export var max_speed = 400
 var velocity:Vector2 = Vector2.ZERO
 
 onready var cannon:Sprite = $Cannon
+onready var player_sprite:Sprite = $PlayerSprite
 
 var projectile_container:Node
 
@@ -44,4 +45,4 @@ func _physics_process(delta):
 	position.y = clamp(position.y, 0, screen_size.y)
 
 func get_border_top_position():
-	return Vector2(position.x, position.y - texture.get_height()/2)
+	return Vector2(position.x, position.y - player_sprite.texture.get_height()/2)
