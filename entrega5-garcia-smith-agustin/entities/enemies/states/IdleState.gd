@@ -1,0 +1,23 @@
+extends "res://entities/enemies/states/AbstractEnemyState.gd"
+
+onready var idle_timer:Timer = $IdleTimer
+
+
+func notify_body_entered(body):
+	.notify_body_entered(body)
+	if parent._can_see_target():
+		emit_signal("finished", "alert")
+
+
+func enter():
+	parent.play_animation("IDLE")
+	idle_timer.start()
+
+
+func exit():
+	idle_timer.stop()
+
+
+func _on_IdleTimer_timeout():
+	if parent.target == null:
+		emit_signal("finished", "walk")
